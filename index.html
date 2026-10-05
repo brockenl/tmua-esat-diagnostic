@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free TMUA / ESAT Maths Diagnostic &mdash; 8 Questions | Oxbridge Maths Lab</title>
+<meta name="description" content="A free 8-question TMUA / ESAT maths diagnostic with a 30-minute timer and full worked solutions. Find the topics costing you marks before exam day.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://brockenl.github.io/tmua-esat-diagnostic/">
+<meta property="og:title" content="Free TMUA / ESAT Maths Diagnostic">
+<meta property="og:description" content="8 questions, 30 minutes, full worked solutions. See where you lose marks.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brockenl.github.io/tmua-esat-diagnostic/">
+<meta name="twitter:card" content="summary">
+<style>
+  :root{
+    --navy:#1F3550; --green:#008060; --green-d:#00664D;
+    --ink:#121212; --body:#4D4D4D; --muted:#7A8794;
+    --bg:#F7F9FB; --card:#FFFFFF; --line:#E3E8EE;
+    --good:#0E7C4A; --bad:#C0392B; --amber:#B7791F;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--body);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  header.top{background:var(--navy);color:#fff;padding:22px 0}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{font-weight:700;letter-spacing:.2px;font-size:17px}
+  .brand span{color:#8FD3BD}
+  .clock{font-variant-numeric:tabular-nums;font-weight:700;font-size:20px;
+    background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px}
+  .clock.warn{background:#B7791F}
+  .clock.danger{background:#C0392B}
+  h1{color:var(--navy);font-size:26px;line-height:1.25;margin:26px 0 8px}
+  h2{color:var(--navy);font-size:19px;margin:26px 0 8px}
+  .lede{font-size:17px;color:var(--body)}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 6px}
+  .chip{background:#EAF3F0;color:var(--green-d);border-radius:999px;padding:5px 12px;
+    font-size:13px;font-weight:600}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px;margin:16px 0;box-shadow:0 1px 2px rgba(18,18,18,.03)}
+  .rules{margin:14px 0 0;padding-left:20px}
+  .rules li{margin:5px 0}
+  .btn{appearance:none;border:0;border-radius:10px;padding:13px 20px;font-size:16px;
+    font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.primary:hover{background:var(--green-d)}
+  .btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--green)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .q{border-top:1px solid var(--line);padding:20px 0}
+  .q:first-of-type{border-top:0}
+  .qhead{display:flex;gap:10px;align-items:baseline;margin-bottom:10px}
+  .qnum{background:var(--navy);color:#fff;font-weight:700;font-size:13px;
+    min-width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:0 0 auto}
+  .qtopic{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+  .stem{white-space:pre-wrap;color:var(--ink);font-size:16px;margin:0 0 14px}
+  .opts{display:grid;gap:8px;margin:0}
+  label.opt{display:flex;gap:11px;align-items:flex-start;border:1.5px solid var(--line);
+    border-radius:10px;padding:11px 13px;cursor:pointer;background:#fff;transition:border-color .12s,background .12s}
+  label.opt:hover{border-color:#B9C6D3}
+  label.opt input{margin:3px 0 0;accent-color:var(--green);flex:0 0 auto}
+  label.opt.sel{border-color:var(--green);background:#F1F8F5}
+  label.opt.correct{border-color:var(--good);background:#EDF7F1}
+  label.opt.wrong{border-color:var(--bad);background:#FBEDEB}
+  .olabel{font-weight:700;color:var(--navy);min-width:16px}
+  .sticky{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(247,249,251,.85),var(--bg) 60%);
+    padding:14px 0 18px;margin-top:8px}
+  .score{font-size:44px;font-weight:800;color:var(--navy);line-height:1}
+  .band{font-size:17px;font-weight:700;color:var(--green-d);margin:8px 0 4px}
+  .bar{height:10px;border-radius:999px;background:#E6EBF0;overflow:hidden;margin:14px 0}
+  .bar > i{display:block;height:100%;background:var(--green);width:0}
+  .topics{display:grid;gap:6px;margin-top:6px}
+  .trow{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;border-radius:8px;background:#F3F6F9;font-size:14.5px}
+  .trow.ok{background:#EDF7F1}
+  .trow.no{background:#FBEDEB}
+  .mark{font-weight:700}
+  .sol{background:#FBFCFD;border-left:3px solid var(--green);border-radius:0 8px 8px 0;
+    padding:12px 15px;margin:10px 0 0;white-space:pre-wrap;font-size:14.5px;color:#33414F}
+  .cta{background:var(--navy);color:#fff;border-radius:16px;padding:24px;margin:26px 0}
+  .cta h2{color:#fff;margin-top:0}
+  .cta p{color:#D5DEE7}
+  .cta .btn.primary{background:#00A67E}
+  .cta .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .fine{font-size:12.5px;color:var(--muted);margin-top:14px}
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:22px 0 40px;
+    font-size:12.5px;color:var(--muted)}
+  .hidden{display:none}
+  @media (max-width:520px){ h1{font-size:22px} .score{font-size:38px} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Oxbridge <span>Maths Lab</span></div>
+    <div class="clock" id="clock" aria-live="off">30:00</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="intro">
+    <h1>Free TMUA / ESAT Maths Diagnostic</h1>
+    <p class="lede">Eight questions, one from each area that decides most TMUA and ESAT
+      maths scores. Sit it cold, under the clock, then read the solutions. The point is not
+      the score &mdash; it is finding the <em>topics</em> that quietly cost you marks.</p>
+    <div class="meta">
+      <span class="chip">8 questions</span>
+      <span class="chip">30 minutes</span>
+      <span class="chip">No calculator</span>
+      <span class="chip">Full worked solutions</span>
+    </div>
+    <div class="card">
+      <strong>Before you start</strong>
+      <ul class="rules">
+        <li>One sitting. Don&rsquo;t stop for notes, search, or a calculator.</li>
+        <li>If no route appears in 30 seconds, pick your best guess and move on.</li>
+        <li>It is fine to finish early &mdash; submit whenever you are done.</li>
+      </ul>
+      <div class="btnrow">
+        <button class="btn primary" id="start">Start &amp; begin the 30:00 clock</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="card" id="qcard"></div>
+    <div class="sticky">
+      <button class="btn primary" id="submit" style="width:100%">Submit &amp; score my answers</button>
+      <div class="fine" id="prog">0 of 8 answered</div>
+    </div>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="card">
+      <div class="score"><span id="score">0</span> / 8</div>
+      <div class="band" id="band"></div>
+      <div class="bar"><i id="bar"></i></div>
+      <p id="summary"></p>
+      <h2 style="font-size:16px;margin-bottom:4px">By topic</h2>
+      <div class="topics" id="topics"></div>
+    </div>
+
+    <div class="cta">
+      <h2>Turn the gaps into a plan</h2>
+      <p>This diagnostic shows <em>where</em> you lose marks. The Starter Pack gives you the
+        order to fix them: a day-by-day 30-day plan, two full-length mocks, a hard MAT/STEP
+        tier, and 268 practice questions with complete worked solutions &mdash; every answer
+        computed and verified in code, not typed by hand.</p>
+      <div class="btnrow">
+        <a class="btn primary" id="pack" href="#">Get the Starter Pack</a>
+        <a class="btn ghost" id="sample" href="#">Free sample: 8 more questions</a>
+      </div>
+    </div>
+
+    <h2>Worked solutions</h2>
+    <div class="card" id="solutions"></div>
+
+    <div class="btnrow" style="margin-bottom:8px">
+      <button class="btn ghost" id="again">Try again</button>
+    </div>
+    <p class="fine">Independent practice material. Not affiliated with UAT-UK, Pearson VUE,
+      or any exam board. This is not an official past paper.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  &copy; Oxbridge Maths Lab. Every question on this page is generated and answer-checked in code.
+</footer>
+
+<script>
+const DATA = {"version": "1.0.0", "seed": 20261090, "questions": [{"topic": "Indices", "paper": 1, "stem": "Find the remainder when 3^2026 is divided by 19.", "options": ["16", "15", "14", "18", "17"], "answer": 0, "solution": "Since 19 is prime and 3 is not a multiple of 19, Fermat's little theorem gives\n3^(18) ≡ 1 (mod 19). Writing 2026 = 18×112 + 10,\n3^2026 ≡ 3^10 ≡ 16 (mod 19), so the remainder is 16."}, {"topic": "Quadratics", "paper": 1, "stem": "By completing the square, find the minimum value of\n\n x² + 4x - 8", "options": ["-13", "-4", "-16", "-11", "-12"], "answer": 4, "solution": "x² + 4x - 8 = (x + 2)² - 4 - 8 = (x + 2)² - 12.\nThe square term is never negative, so the minimum value is -12."}, {"topic": "Functions", "paper": 1, "stem": "Find the largest possible domain of the function\n\n f(x) = √(x - 4)", "options": ["x ≤ 4", "all real x", "x > 4", "x ≥ 4", "x ≥ -4"], "answer": 3, "solution": "The expression under the square root must not be negative, so x - 4 ≥ 0, i.e. x ≥ 4."}, {"topic": "Sequences", "paper": 1, "stem": "An arithmetic sequence has 5th term 35 and 10th term 65.\nFind the value of the first term plus the common difference (a + d).", "options": ["6", "23", "17", "28", "11"], "answer": 2, "solution": "t₅ = a + 4d = 35 and t₁₀ = a + 9d = 65.\nSubtracting: 5d = 30, so d = 6 and a = 11.\nHence a + d = 17."}, {"topic": "Coordinate geometry", "paper": 1, "stem": "The point P = (-4, -2) is reflected in the line y = x - 3 .\nFind the coordinates of the image.", "options": ["(-4, -2)", "(-7, 1)", "(1, -7)", "(2, -8)", "(2, -7)"], "answer": 2, "solution": "Reflection in the line y = x + c swaps the coordinates and adjusts for the shift:\n(x, y) → (y - c, x + c).\nSo P = (-4, -2) maps to (-2 + 3, -4 - 3) = (1, -7)."}, {"topic": "Trigonometry", "paper": 1, "stem": "Simplify (1 - cos²θ)/sin θ for sin θ ≠ 0.", "options": ["cos θ", "sin θ", "tan θ", "cos²θ", "1"], "answer": 1, "solution": "Using sin²θ + cos²θ = 1, the numerator is sin²θ, so the expression is\nsin²θ / sin θ = sin θ."}, {"topic": "Differentiation", "paper": 1, "stem": "Given that y = 3x^6 + 9x, find the value of dy/dx when x = 1.", "options": ["26", "27", "28", "30", "18"], "answer": 1, "solution": "dy/dx = 3×6x^5 + 9 = 18x^5 + 9.\nAt x = 1 this equals 27."}, {"topic": "Logic", "paper": 2, "stem": "Consider the claim: \"2^(2^n) + 1 is prime for every non-negative integer n\".\nWhich value of n disproves the claim?", "options": ["n = 5", "n = 1", "n = 0", "n = 2", "n = 3"], "answer": 0, "solution": "For n = 5 the value is 4294967297, which factorises (for instance 641 is a factor), so the claim is false."}]};
+const Q = DATA.questions;
+const LET = "ABCDE";
+const TOTAL = 30 * 60;           // seconds
+let remaining = TOTAL, timer = null, started = false, submitted = false;
+const answers = new Array(Q.length).fill(null);
+
+const $ = id => document.getElementById(id);
+const fmt = s => String(Math.floor(s/60)).padStart(2,"0") + ":" + String(s%60).padStart(2,"0");
+
+function renderQuestions(){
+  const card = $("qcard");
+  card.innerHTML = Q.map((q,i)=>{
+    const opts = q.options.map((o,j)=>
+      `<label class="opt" data-q="${i}" data-o="${j}">
+         <input type="radio" name="q${i}" value="${j}">
+         <span class="olabel">${LET[j]}</span><span class="otext">${esc(o)}</span>
+       </label>`).join("");
+    return `<div class="q">
+      <div class="qhead"><span class="qnum">${i+1}</span>
+        <span class="qtopic">${esc(q.topic)}</span></div>
+      <p class="stem">${esc(q.stem)}</p>
+      <div class="opts">${opts}</div>
+    </div>`;
+  }).join("");
+  card.addEventListener("change", e=>{
+    if(e.target.name && e.target.name.indexOf("q")===0){
+      const i = +e.target.name.slice(1);
+      answers[i] = +e.target.value;
+      card.querySelectorAll(`label.opt[data-q="${i}"]`).forEach(l=>
+        l.classList.toggle("sel", +l.dataset.o === answers[i]));
+      updateProgress();
+    }
+  });
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function updateProgress(){
+  const n = answers.filter(a=>a!==null).length;
+  $("prog").textContent = n + " of " + Q.length + " answered";
+}
+function tick(){
+  remaining--;
+  if(remaining<=0){ remaining=0; $("clock").textContent="00:00"; submit(true); return; }
+  $("clock").textContent = fmt(remaining);
+  $("clock").className = "clock" + (remaining<=120 ? " danger" : remaining<=600 ? " warn" : "");
+}
+function start(){
+  if(started) return; started = true;
+  $("intro").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  timer = setInterval(tick, 1000);
+  $("qcard").scrollIntoView({behavior:"smooth", block:"start"});
+}
+function bandFor(n){
+  if(n>=7) return "Strong start &mdash; now protect it under time pressure.";
+  if(n>=5) return "Solid, with clear gaps to close.";
+  if(n>=3) return "Foundational gaps worth fixing early.";
+  return "Start from the fundamentals &mdash; that is the highest-value move.";
+}
+function submit(timeUp){
+  if(submitted) return; submitted = true;
+  clearInterval(timer);
+  let score = 0;
+  Q.forEach((q,i)=>{
+    const chosen = answers[i];
+    if(chosen===q.answer) score++;
+    $("qcard").querySelectorAll(`label.opt[data-q="${i}"]`).forEach(l=>{
+      const j = +l.dataset.o;
+      l.classList.remove("sel");
+      if(j===q.answer) l.classList.add("correct");
+      else if(j===chosen) l.classList.add("wrong");
+      l.querySelector("input").disabled = true;
+    });
+  });
+  $("score").textContent = score;
+  $("band").innerHTML = (timeUp ? "Time &mdash; marked as you left it. " : "") + bandFor(score);
+  $("bar").style.width = (score/Q.length*100) + "%";
+  $("summary").textContent =
+    score + " of " + Q.length + " correct. The topics below are the ones to work on first.";
+  $("topics").innerHTML = Q.map((q,i)=>{
+    const ok = answers[i]===q.answer;
+    return `<div class="trow ${ok?"ok":"no"}">
+      <span>${esc(q.topic)}</span>
+      <span class="mark">${ok?"Correct":("Answer "+LET[q.answer])}</span></div>`;
+  }).join("");
+  $("solutions").innerHTML = Q.map((q,i)=>
+    `<div class="q"><div class="qhead"><span class="qnum">${i+1}</span>
+      <span class="qtopic">${esc(q.topic)} &middot; answer ${LET[q.answer]}</span></div>
+     <p class="stem">${esc(q.stem)}</p>
+     <div class="sol">${esc(q.solution)}</div></div>`).join("");
+  $("quiz").querySelector(".sticky").classList.add("hidden");
+  $("results").classList.remove("hidden");
+  $("results").scrollIntoView({behavior:"smooth", block:"start"});
+}
+function again(){ location.reload(); }
+
+$("sample").href = "https://payhip.com/b/RZyzP";
+$("pack").href = "https://payhip.com/b/vmrdZ";
+$("start").addEventListener("click", start);
+$("submit").addEventListener("click", ()=>submit(false));
+$("again").addEventListener("click", again);
+renderQuestions(); updateProgress();
+</script>
+</body>
+</html>
